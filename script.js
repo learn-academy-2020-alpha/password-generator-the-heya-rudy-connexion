@@ -12,6 +12,8 @@ var yesUpper = confirm("Do you want uppercase letters in your password?")
 //Prompting the user to choose whetherthey want LOWER (bool)
 var yesLower = confirm("Do you want lowercase letters in your password?")
 
+//make prompts pop up when user clicks Generate Password button
+
 //***************************************************************
 
 //Determine the global variable for length (later to put in the final function)
@@ -26,9 +28,6 @@ let functionCount = (num) => {
 
 //Calling the function to validate characterCount
 functionCount(askedCount)
-
-//Checking if confirmedCount is saved
-alert(confirmedCount)
 
 //***************************************************************
 
@@ -54,7 +53,7 @@ function generatePasswordUpper(length) {
 //To generate LOWER case password, use this function:
 function generatePasswordLower(length) {
    var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+   var characters       = 'abcdefghijklmnopqrstuvwxyz';
    var charactersLength = characters.length;
    for ( var i = 0; i < length; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -89,11 +88,11 @@ generatePassword = (length, bool1, bool2) => {
 }
 
 //Test the function Generate Password
-alert(generatePassword(confirmedCount, yesUpper, yesLower));
+// generatePassword(confirmedCount, yesUpper, yesLower)
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword(confirmedCount, yesUpper, yesLower);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
